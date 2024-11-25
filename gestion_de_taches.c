@@ -46,7 +46,7 @@ void cree_tache() {
     printf("Tache ajoutee avec succes.\n");
 }
 
-// Fonction pour afficher les informations d'und tache
+// Fonction pour afficher la liste des tàches 
 void afficher_tache(){
 
     if (tacheNum == 0)
@@ -65,7 +65,61 @@ void afficher_tache(){
     }
 }
 
+// Fonction pour modifier une tache
 
+void modifier_tache(){
+    int index;
+    printf("Entrez le numero de la tache a modifier : ");
+    scanf("%d",&index);
+    if(index < 1 || index > tacheNum){
+        printf("Numero de tache invalide");
+    }
+    index--;
+    int choix;
+    do
+    {
+        printf("1. Modifier le titre. \n");
+        printf("2. Modifier la description. \n");
+        printf("3. Modifier la date d'echeance. \n");
+        printf("4. Modifier la priorite. \n");
+        printf("5. Quitter. \n");
+        printf("Entrer votre choix :");
+        scanf("%d",&choix);
+
+        switch (choix)
+        {
+        case 1:
+            printf("Modifier le titre : ");
+            scanf(" %[^\n]", taches[index].titre);
+            break;
+        case 2:
+            printf("Modifier la description : ");
+            scanf(" %[^\n]", taches[index].description);
+            break;
+        case 3:
+            printf("Modifier la date d'echeance : \n");
+            printf("jour:");
+            scanf("%d",&taches[index].tarikh.jour);
+            printf("mois:");
+            scanf("%d",&taches[index].tarikh.mois);
+            printf("anee:");
+            scanf("%d",&taches[index].tarikh.anee);
+            break;
+
+        case 4:
+            printf("Modifier la priorite : ");
+            scanf(" %[^\n]", taches[index].priorite);
+            break;
+        case  5:
+            printf("Tache modifiee avec succes \n");
+            break;
+        default: 
+            printf("choix invalide.");
+            break;
+        }
+
+    } while (choix != 6);
+}
 
 
 
