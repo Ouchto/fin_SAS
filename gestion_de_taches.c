@@ -46,6 +46,25 @@ void cree_tache() {
     printf("Tache ajoutee avec succes.\n");
 }
 
+// Fonction pour afficher les informations d'und tache
+void afficher_tache(){
+
+    if (tacheNum == 0)
+    {
+        printf("Aucune tache a afficher");
+    }
+
+    printf("\nListe des taches : \n");
+    for (int i = 0; i < tacheNum; i++){
+        printf("\nTache Num %d:\n",i + 1);
+        printf("Titre : %s\n",taches[i].titre);
+        printf("Description : %s\n",taches[i].description);
+        printf("date d'echeance : %d/%d/%d \n",taches[i].tarikh.jour,taches[i].tarikh.mois,taches[i].tarikh.anee);
+        printf("Priorite : %s\n",taches[i].priorite);
+
+    }
+}
+
 
 
 
