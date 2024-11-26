@@ -46,7 +46,9 @@ void cree_tache() {
     printf("Tache ajoutee avec succes.\n");
 }
 
+
 // Fonction pour afficher la liste des tàches 
+
 void afficher_tache(){
 
     if (tacheNum == 0)
