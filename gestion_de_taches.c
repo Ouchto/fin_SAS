@@ -123,7 +123,21 @@ void modifier_tache(){
     } while (choix != 6);
 }
 
-
+// Fonction pour supprimer une tache 
+void supprimer_tache(){
+    int index;
+    printf("Entrez le numero de la tache a supprimrer : ");
+    scanf("%d",&index);
+    if (index < 1 || index > tacheNum){
+        printf("Numero de tache invalide");
+    }
+    index--;
+    for(int i= index; i < tacheNum - 1; i++){
+        taches[i] = taches[i + 1];
+    }
+    tacheNum--;
+    printf("Tache supprimee avec succes \n");
+}
 
 
 
@@ -146,6 +160,15 @@ int main() {
         switch (choix) {
             case 1:
                 cree_tache();
+                break;
+            case 2:
+                afficher_tache();
+                break;
+            case 3:
+                modifier_tache();
+                break;
+            case 4:
+                supprimer_tache();
                 break;
 
             default:
