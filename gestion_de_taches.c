@@ -139,6 +139,38 @@ void supprimer_tache(){
     printf("Tache supprimee avec succes \n");
 }
 
+// Fonction pour filtrer les taches par priorite
+void filtrer_taches(){
+    char priorite[10];
+    printf("Entrez la priorite pour filtrer (high/low) : ");
+    scanf(" %[^\n]", priorite);
+
+    printf("\nTaches avec priorite '%s' : \n",priorite);
+    int trouve = 0;
+    tache hold[100];
+    int holdNum = 0;
+    for (int i = 0; i < tacheNum; i++){
+        
+        if (strcmp(taches[i].priorite, priorite) == 0 )
+            {
+                hold[holdNum] = taches[i];
+                holdNum++;
+                trouve = 1;
+            }
+        
+    }
+    if (trouve != 1){
+            printf("Aucune tache trouvee avec cette priorite.\n");
+        }
+    for (int j = 0; j <  holdNum; j++)
+        {
+            printf("\n Tache Num %d \n", j + 1);
+            printf("Titre : %s\n", hold[j].titre);
+            printf("Description : %s \n",hold[j].description);
+            printf("Date d'echeance : %d/%d/%d \n",hold[j].tarikh.jour,hold[j].tarikh.mois,hold[j].tarikh.anee);
+            printf("Priorite : %s\n",hold[j].priorite);
+        }
+}
 
 
 
@@ -170,7 +202,12 @@ int main() {
             case 4:
                 supprimer_tache();
                 break;
-
+            case 5:
+                filtrer_taches();
+                break;
+            case 6:
+                printf("Au revoir !\n");
+                break;
             default:
                 printf("Choix invalide.\n");
                 break;
